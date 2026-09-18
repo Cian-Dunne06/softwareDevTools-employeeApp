@@ -30,7 +30,7 @@ fun payslip () {
     println("       PAYSLIP")
     println("========================================")
     println("Employee ID:   : " + employeeId)
-    println("Employee       : " + firstName.uppercase() + " " + surname.uppercase() + " (" + employeeId + ")")
+    println(getFullName(firstName, surname) + " (" + employeeId + ")")
     println("Job / Dept     : " + jobTitle + " (" + department + ")")
     println("-----------------------------------------")
     println("Hourly Rate    : €" + hourlyRate)
@@ -48,4 +48,8 @@ fun payslip () {
     println("=====================================")
 
 
+}
+
+fun getFullName(firstName: String, secondName: String) : String {
+    return "$firstName $secondName".uppercase()
 }
