@@ -37,7 +37,7 @@ fun main(){
 
 fun menu() : Int {
     print("""
-        Employee Menu for ${getFullName()}
+        Employee Menu for ${fullName()}
         1. Hourly Rate
         2. Hours Worked
         3. Overtime Hours
@@ -59,7 +59,7 @@ fun getPayslip(): String {
         |==================================================
         |
         |Employee ID       : $employeeId
-        |Employee          : ${getFullName()} ($employeeId)
+        |Employee          : ${fullName()} ($employeeId)
         |Job / Dept        : $jobTitle ($department)
         |--------------------------------------------------
         |Hourly Rate       : €$hourlyRate
@@ -79,7 +79,7 @@ fun getPayslip(): String {
 
 }
 
-fun getFullName() = "${firstName.uppercase()} ${surname.uppercase()}"
+fun fullName() = "${firstName.uppercase()} ${surname.uppercase()}"
 fun calculateNormalPay() = hourlyRate * hoursWorked
 fun calculateOvertimePay() = overtimeHoursWorked * (hourlyRate * 1.5)
 fun calculateGrossPay() = calculateNormalPay() + calculateOvertimePay()
