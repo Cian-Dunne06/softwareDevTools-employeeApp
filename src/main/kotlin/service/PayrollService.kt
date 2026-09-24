@@ -26,7 +26,7 @@
         fun calculateNetPay(employee: Employee)
                 = calculateGrossPay(employee) + calculateBonus(employee) - calculateTax(employee) - calculatePension(employee)
 
-        fun getFullName(employee: Employee) = "${employee.firstName.uppercase()} ${employee.surname.uppercase()}"
+        fun getFullName(employee: Employee) = "${employee.firstName} ${employee.surname}"
 
         fun getPayslip(employee: Employee): String {
 
