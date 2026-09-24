@@ -1,12 +1,19 @@
 import model.Employee
 import repository.EmployeeRepository
 import service.PayrollService
+import mu.KotlinLogging
 
 val payrollService = PayrollService()
 
 val employeeRepository = EmployeeRepository()
 
+val logger = KotlinLogging.logger {}
+
+
 fun main(){
+
+    logger.info { "Launching Employee App" }
+
     var input : Int
 
     do {
@@ -89,12 +96,16 @@ fun add() {
 fun list() = employeeRepository.getAll().forEach { println(it) }
 
 fun getEmployeeById(): Employee? {
+    logger.info { "Begin Searching" }
+
     print("Enter the employee id to search by: ")
     val employeeID = readln().toInt()
     return employeeRepository.findById(employeeID)
 }
 
 fun displayPaySlip(){
+    logger.info { "Displaying Payslip" }
+
     val employee = getEmployeeById()
     if (employee != null){
         val payslip = payrollService.getPayslip(employee)
@@ -103,6 +114,8 @@ fun displayPaySlip(){
 }
 
 fun dummyData() {
+    logger.info { "Adding Dummy Data" }
+
     employeeRepository.add(
         Employee(
             0, "Joe", "Soap", "Marketing", "Marketing Intern",
